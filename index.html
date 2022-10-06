@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Meghapus Data</title>
+</head>
+<body>
+    <div class="filter">
+        <table>
+             <tr>
+                <th colspan="5">Daftar Mahasiswa KIP Yang Belum Melakukan Pendaftaran Link UTS</th>
+             </tr>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>NIM</th>
+                <th>Aksi</th>
+            </tr>
+            <tr class="row" id="daftar_1">
+                <td class="data" id="no_1">1</td>
+                <td class="data" id="nama_1">ARI DANI LILAH</td>
+                <td class="data" id="kelas_1">TI-2022-C1</td>
+                <td class="data" id="nim_1">41226147</td>
+                <td class="data" id="hapus_1">Hapus</td>
+            </tr>
+            <tr class="row" id="daftar_2">
+                <td class="data" id="no_2">2</td>
+                <td class="data" id="nama_2">BARA AL FATAH</td>
+                <td class="data" id="kelas_2">TI-2022-C1</td>
+                <td class="data" id="nim_2">41226163</td>
+                <td class="data" id="hapus_2">Hapus</td>
+            </tr>
+            <tr class="row"  id="daftar_3" >
+                <td class="data" id="no_3">3</td>
+                <td class="data" id="nama_3">RIKA QODRIAH</td>
+                <td class="data" id="kelas_3">TI-2022-C2</td>
+                <td class="data" id="nim_3">41226052</td>
+                <td class="data" id="hapus_3">Hapus</td>
+            </tr>
+            <tr class="row" id="daftar_4">
+                <td class="data" id="no_4">4</td>
+                <td class="data" id="nama_4">INDAH FIRIYANI</td>
+                <td class="data" id="kelas_4">TI-2022-C3</td>
+                <td class="data" id="nim_4">41226079</td>
+                <td class="data" id="hapus_4">Hapus</td>
+            </tr>
+            <tr class="" id="daftar_5">
+                <td class="data" id="no_5">5</td>
+                <td class="data" id="nama_5">RAHMALIA PUTRI</td>
+                <td class="data" id="kelas_5">TI-2022-C4</td>
+                <td class="data" id="nim_5">41226089</td>
+                <td class="data" id="hapus_5">Hapus</td>
+            </tr>
+        </table>
+</div>
+    <script>
+		$(document).ready(function(){
+			//alert(0)
+			$('.data').click(function(){
+				//alert(1)
+				let isi = $(this).text();
+				let tid = $(this).prop('id');
+				let rid = tid.split('_');
+				let id_urut = rid[1];
+				let nama_mahasiswa = $('#nama_'+id_urut).text();
+				
+				if(isi=='Hapus'){
+					let yakin = confirm(`Anda akan menghapus ${nama_mahasiswa} dari daftar...?`);
+					if(!yakin) return;
+					
+					$('#daftar_'+id_urut).fadeOut();
+				
+				}
+				else{
+					alert('Belum ada aksi.Terimakasih.')
+				}
+			})
+		})
+	
+	</script>
+
+</body>
+</html>
